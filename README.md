@@ -7,7 +7,7 @@ Node.js - Basic MongoDB functions and tutorials.
 C:\Users\Your Name>node file.js
 ```
 
-# Load package for mysql
+# Load package for mongodb
 ```
 C:\Users\Your Name>npm install mongodb
 ```
