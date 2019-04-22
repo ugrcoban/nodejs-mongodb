@@ -10,7 +10,7 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
   // mysql> Select * FROM users
   dbo.collection("users").find({}).toArray(function(err, result) {
     if (err) throw err;
-    console.log('mysql> Select * FROM users');
+    console.log('\n mysql> Select * FROM users');
 	console.log(result);
     db.close();
   });
@@ -21,7 +21,7 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
   var query= {};
   dbo.collection("users").find(query, { projection: { _id: 1, name:1 } }).toArray(function(err, result) {
     if (err) throw err;
-    console.log('mysql> Select id,name FROM users');
+    console.log('\n mysql> Select id,name FROM users');
 	console.log(result);
     db.close();
   });
@@ -35,7 +35,7 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
   dbo.collection("users").find(query, { projection: { _id: 0, address:1 } }).sort(orderby).limit(limit).toArray(function(err, result) {
     if (err) throw err;
     
-	console.log("mysql> Select address FROM users WHERE name='Vivi Inc' ORDER by name ASC LIMIT 5");
+	console.log("\n mysql> Select address FROM users WHERE name='Vivi Inc' ORDER by name ASC LIMIT 5");
 	
 	//console.log(result);
 	Object.keys(result).forEach(function(key) {

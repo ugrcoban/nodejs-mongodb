@@ -12,4 +12,21 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
     console.log("Inserted id : "+res.insertedId);
     db.close();
   });
+  
+  
+  
+  
+	// documents to be inserted
+	var docs = [{ name: "Udat", age: "21" },
+                { name: "Karthik", age: "24" },
+                { name: "Anil", age: "23" }];
+    
+	// insert multiple documents to 'users' collection using insertOne
+	dbo.collection("users").insertMany(docs, function(err, res) {
+		if (err) throw err;
+		console.log(res.insertedCount+" documents inserted");
+		// close the connection to db when you are done with it
+		db.close();
+	});
+
 });
