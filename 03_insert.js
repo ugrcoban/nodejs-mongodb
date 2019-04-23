@@ -5,6 +5,8 @@ var url = "mongodb://localhost:27017/";
 MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
   if (err) throw err;
   var dbo = db.db(dbname);
+  
+  /**** InsertOne ***/
   var myobj = { name: "Vivi Inc", address: "Esentepe mah." };
   dbo.collection("users").insertOne(myobj, function(err, res) {
     if (err) throw err;
@@ -15,11 +17,11 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
   
   
   
-  
+	/***** insertMany *****/
 	// documents to be inserted
 	var docs = [{ name: "Udat", age: "21" },
                 { name: "Karthik", age: "24" },
-                { name: "Anil", age: "23" }];
+                { _id:100, name: "Anil", age: "23" }];
     
 	// insert multiple documents to 'users' collection using insertOne
 	dbo.collection("users").insertMany(docs, function(err, res) {
@@ -28,5 +30,6 @@ MongoClient.connect(url, {useNewUrlParser: true }, function(err, db) {
 		// close the connection to db when you are done with it
 		db.close();
 	});
-
+	
+	
 });
